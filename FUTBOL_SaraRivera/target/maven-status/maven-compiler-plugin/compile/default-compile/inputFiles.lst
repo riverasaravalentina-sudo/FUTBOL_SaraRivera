@@ -1,5 +1,14 @@
-C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\ClubControlador.java
-C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\JugadorControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\AsociacionRestControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\AsociacionWebControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\ClubRestControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\ClubWebControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\CompeticionRestControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\CompeticionWebControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\EntrenadorRestControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\EntrenadorWebControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\HomeControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\JugadorRestControlador.java
+C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\controladores\JugadorWebControlador.java
 C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\DataLoader.java
 C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\entidades\Asociacion.java
 C:\Users\Sara Rivera\git\repository\FUTBOL_SaraRivera\src\main\java\com\futbol\app\entidades\Club.java
