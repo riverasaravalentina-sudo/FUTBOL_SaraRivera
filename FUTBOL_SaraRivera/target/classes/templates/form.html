@@ -356,7 +356,7 @@
         </div>
 
         <form th:action="@{/guardar}" th:object="${club}" method="post" class="form-card">
-            
+			<input type="hidden" th:field="*{id}"/>
             <div class="form-section">
                 <div class="section-title">
                     <i class="bi bi-info-circle"></i>

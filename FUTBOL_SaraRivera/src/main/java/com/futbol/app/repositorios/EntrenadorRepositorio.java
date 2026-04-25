@@ -1,7 +1,7 @@
 package com.futbol.app.repositorios;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.futbol.app.entidades.Entrenador;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface EntrenadorRepositorio extends JpaRepository<Entrenador, Long> {
+public interface EntrenadorRepositorio extends MongoRepository<Entrenador, String> {
 }

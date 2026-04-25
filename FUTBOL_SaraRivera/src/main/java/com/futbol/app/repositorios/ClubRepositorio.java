@@ -1,14 +1,7 @@
 package com.futbol.app.repositorios;
 
 import com.futbol.app.entidades.Club;
-import com.futbol.app.entidades.Entrenador;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.Optional;
-
-@Repository
-public interface ClubRepositorio extends JpaRepository<Club, Long> {
-
-    Optional<Club> findByEntrenador(Entrenador entrenador);
+public interface ClubRepositorio extends MongoRepository<Club, String> {
 }
