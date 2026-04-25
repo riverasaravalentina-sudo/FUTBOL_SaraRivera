@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fútbol Club | Inicio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0e27; color: #e2e8f0; min-height: 100vh; overflow-x: hidden; }
+        .bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px); background-size: 50px 50px; animation: gridMove 20s linear infinite; z-index: 0; }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+        .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.4; animation: float 20s ease-in-out infinite; z-index: 0; }
+        .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, #6366f1, transparent); top: -300px; right: -300px; }
+        .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, #8b5cf6, transparent); bottom: -250px; left: -250px; animation-delay: 7s; }
+        .orb-3 { width: 400px; height: 400px; background: radial-gradient(circle, #ec4899, transparent); top: 50%; left: 50%; animation-delay: 14s; }
+        @keyframes float { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(100px,100px) scale(1.1); } }
+        .hero { position: relative; z-index: 10; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+        .hero-content { max-width: 1000px; text-align: center; }
+        .badge-demo { display: inline-block; background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.4); padding: 12px 30px; border-radius: 50px; color: #818cf8; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        h1 { font-size: 4.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; animation: fadeIn 0.8s ease 0.2s backwards; }
+        .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .lead { font-size: 1.3rem; color: #94a3b8; max-width: 700px; margin: 0 auto 3rem; line-height: 1.7; animation: fadeIn 1s ease 0.4s backwards; }
+        .btn-cta { background: linear-gradient(135deg, #6366f1, #8b5cf6); border: none; padding: 18px 50px; font-size: 1.2rem; font-weight: 700; border-radius: 15px; color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; box-shadow: 0 20px 40px rgba(99,102,241,0.4); animation: fadeIn 1.2s ease 0.6s backwards; }
+        .btn-cta:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(99,102,241,0.6); color: white; }
+
+        /* Botones de gestión */
+        .manage-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; animation: fadeIn 1.3s ease 0.7s backwards; }
+        .btn-manage { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.4); color: #a5b4fc; padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
+        .btn-manage:hover { background: rgba(99,102,241,0.3); color: #fff; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(99,102,241,0.3); }
+        .btn-manage i { font-size: 1.2rem; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 5rem; animation: fadeIn 1.4s ease 0.8s backwards; }
+        .feature-card { background: rgba(15,23,42,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 2.5rem 2rem; text-align: center; transition: all 0.4s; position: relative; overflow: hidden; }
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #6366f1, #8b5cf6); transform: scaleX(0); transition: transform 0.4s; }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-card:hover { transform: translateY(-10px); border-color: rgba(99,102,241,0.5); box-shadow: 0 20px 40px rgba(99,102,241,0.3); }
+        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2.5rem; color: white; transition: all 0.3s; }
+        .feature-card:hover .feature-icon { transform: rotateY(360deg); }
+        .feature-title { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+        .feature-desc { color: #94a3b8; font-size: 1rem; line-height: 1.6; }
+        .float-icon { position: fixed; font-size: 3rem; opacity: 0.1; animation: floatAround 15s ease-in-out infinite; z-index: 1; }
+        .float-1 { top: 10%; left: 5%; color: #6366f1; }
+        .float-2 { top: 20%; right: 8%; color: #8b5cf6; animation-delay: 5s; }
+        .float-3 { bottom: 15%; left: 10%; color: #ec4899; animation-delay: 10s; }
+        @keyframes floatAround { 0%, 100% { transform: translate(0,0) rotate(0deg); } 25% { transform: translate(30px,-30px) rotate(90deg); } 50% { transform: translate(-20px,30px) rotate(180deg); } 75% { transform: translate(30px,30px) rotate(270deg); } }
+        @media (max-width: 768px) { h1 { font-size: 3rem; } .lead { font-size: 1.1rem; } .btn-cta { padding: 15px 40px; font-size: 1.1rem; } .features { grid-template-columns: 1fr; } .float-icon { display: none; } .manage-buttons { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <i class="bi bi-trophy-fill float-icon float-1"></i>
+    <i class="bi bi-star-fill float-icon float-2"></i>
+    <i class="bi bi-shield-fill float-icon float-3"></i>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="badge-demo">
+                <i class="bi bi-code-square me-2"></i>Proyecto Demo
+            </div>
+
+            <h1>
+                Sistema de Gestión<br>
+                <span class="gradient-text">Fútbol Club</span>
+            </h1>
+
+            <p class="lead">
+                Plataforma completa para administrar clubes, jugadores, entrenadores
+                y competiciones. Construido con Spring Boot, MongoDB y Thymeleaf.
+            </p>
+
+            <a href="/listar" class="btn-cta">
+                <i class="bi bi-arrow-right-circle"></i>
+                Explorar Clubes
+            </a>
+
+            <!-- ✅ Botones de gestión -->
+            <div class="manage-buttons">
+                <a href="/entrenadores" class="btn-manage">
+                    <i class="bi bi-person-badge"></i> Gestionar Entrenadores
+                </a>
+                <a href="/asociaciones" class="btn-manage">
+                    <i class="bi bi-building"></i> Gestionar Asociaciones
+                </a>
+                <a href="/competiciones" class="btn-manage">
+                    <i class="bi bi-trophy"></i> Gestionar Competiciones
+                </a>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-server"></i></div>
+                    <h3 class="feature-title">Spring Boot</h3>
+                    <p class="feature-desc">Backend robusto y escalable con arquitectura moderna</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-database-fill"></i></div>
+                    <h3 class="feature-title">MongoDB</h3>
+                    <p class="feature-desc">Persistencia de datos en la nube con base de datos NoSQL MongoDB Atlas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-file-code"></i></div>
+                    <h3 class="feature-title">Thymeleaf</h3>
+                    <p class="feature-desc">Motor de plantillas dinámico para interfaces modernas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,9 +1,7 @@
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:21-jre-jammy
 
-# Copia el jar generado por Maven al contenedor
 COPY ./target/FUTBOL-1.jar /app.jar
 
-# Puerto que usa tu aplicación (según tu EXPOSE)
-EXPOSE 8081
+EXPOSE 8217
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar", "--server.port=8217"]
